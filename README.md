@@ -16,12 +16,12 @@ Import-Module .\pwshutils-cheatsheets\PwshUtils.CheatSheets.psd1
 
 ## 🧩 Available Commands
 
-### `Get-VimCheatSheet [<Filter>]`
+### `Get-VimCommand [<Filter>]`
 Displays a categorized Vim cheat sheet.  
 
 ```powershell
-Get-VimCheatSheet
-Get-VimCheatSheet syntax
+Get-VimCommand
+Get-VimCommand syntax
 ```
 
 ---

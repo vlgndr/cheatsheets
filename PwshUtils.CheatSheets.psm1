@@ -60,12 +60,12 @@ A case-insensitive text filter that matches against the 'Command' and 'Descripti
 Returns only rows where the command contains the specified text.
 
 .EXAMPLE
-Get-VimCheatSheet
+Get-VimCommand
 
 Displays the full Vim cheat sheet.
 
 .EXAMPLE
-Get-VimCheatSheet gg
+Get-VimCommand gg
 
 Displays only the Vim commands that contain 'gg'.
 
@@ -73,7 +73,7 @@ Displays only the Vim commands that contain 'gg'.
 Author: vlgndr
 Module: PwshUtils.CheatSheets
 #>
-Function Get-VimCheatSheet {
+Function Get-VimCommand {
 	param(
 		[Parameter(Position = 0)]
 		[string]$Filter
