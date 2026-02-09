@@ -1,4 +1,5 @@
 . "$PSScriptRoot\Private\Get-GistFile.ps1"
+. "$PSScriptRoot\Private\Get-FilteredData.ps1"
 
 <#
 .SYNOPSIS
@@ -33,16 +34,7 @@ Function Get-WinLinuxMap {
 		[string]$Filter
 	)
 
-	$data = Get-GistFile -Url 'https://gist.githubusercontent.com/vlgndr/c9bcbc3350158726aaa67b1ae2103c91/raw/PowerShellLinuxMap.csv'
-
-	if ($Filter) {
-		$data = $data | Where-Object {
-			$_.Windows -ilike "*$Filter*" -or
-			$_.Linux -ilike "*$Filter*" -or
-			$_.Operation -ilike "*$Filter*" -or
-			$_.Description -ilike "*$Filter*" 
-		}
-	}
+  $data = Get-FilteredData -Url 'https://gist.githubusercontent.com/vlgndr/c9bcbc3350158726aaa67b1ae2103c91/raw/PowerShellLinuxMap.csv' -Filter $Filter -Columns Windows,Linux,Operation,Description
 
 	$data 
 }
@@ -79,13 +71,8 @@ Function Get-VimCommand {
 		[string]$Filter
 	)
 
-	$data = Get-GistFile -Url 'https://gist.githubusercontent.com/vlgndr/8d240f6a885b301a7cbbfdcb563d4600/raw/VimCheatSheet.csv'
-	if ($Filter) {
-		$data = $data | Where-Object {
-			$_.Command -ilike "*$Filter*" -or
-			$_.Description -ilike "*$Filter*"
-		}
-	}
+  $data = Get-FilteredData -Url 'https://gist.githubusercontent.com/vlgndr/8d240f6a885b301a7cbbfdcb563d4600/raw/VimCheatSheet.csv' -Filter $Filter -Columns Command,Description
+
 	$data
 }
 
@@ -121,16 +108,8 @@ Function Get-WindowsCommand {
 		[string]$Filter
 	)
 
-	$data = Get-GistFile -Url 'https://gist.githubusercontent.com/vlgndr/46f0ccd9b7d58d17d51e73e972e75caa/raw/WindowsRun.csv'
+  $data = Get-FilteredData -Url 'https://gist.githubusercontent.com/vlgndr/46f0ccd9b7d58d17d51e73e972e75caa/raw/WindowsRun.csv' -Filter $Filter -Columns Name,Command,Description
 
-	if ($Filter) {
-		$data = $data | Where-Object {
-			$_.Name -ilike "*$Filter*" -or
-			$_.Command -ilike "*$Filter*" -or
-			$_.Description -ilike "*$Filter*" 
-		}
-	}
-	
 	$data
 }
 
@@ -170,16 +149,8 @@ Function Get-DockerCommand {
 		[string]$Filter
 	)
 
-	$data = Get-GistFile -Url 'https://gist.githubusercontent.com/vlgndr/1aaada0abbd7eb7114c9fee95151622d/raw/c61a5cb64b21982e3b76e10cff12f7bc4cefc760/docker.csv'
+  $data = Get-FilteredData -Url 'https://gist.githubusercontent.com/vlgndr/1aaada0abbd7eb7114c9fee95151622d/raw/c61a5cb64b21982e3b76e10cff12f7bc4cefc760/docker.csv' -Filter $Filter -Columns Name,Command,Description
 
-	if ($Filter) {
-		$data = $data | Where-Object {
-			$_.Name -ilike "*$Filter*" -or
-			$_.Command -ilike "*$Filter*" -or
-			$_.Description -ilike "*$Filter*" 
-		}
-	}
-	
 	$data
 }
 
@@ -218,14 +189,8 @@ Function Get-RegexExample {
 		[string]$Filter
 	)
 
-	$data = Get-GistFile -Url 'https://gist.githubusercontent.com/vlgndr/c953882a43cc7ddfb186ea5e6d1daa1a/raw/9acb14826bdc9b3ac658824235c5fac6cb4f8d3e/regex-examples.csv'
+  $data = Get-FilteredData -Url 'https://gist.githubusercontent.com/vlgndr/c953882a43cc7ddfb186ea5e6d1daa1a/raw/9acb14826bdc9b3ac658824235c5fac6cb4f8d3e/regex-examples.csv' -Filter $Filter -Columns Name
 
-	if ($Filter) {
-		$data = $data | Where-Object {
-			$_.Name -ilike "*$Filter*" 
-		}
-	}
-	
 	$data
 }
 
@@ -262,16 +227,8 @@ Function Get-GitCommand {
 		[string]$Filter
 	)
 
-	$data = Get-GistFile -Url 'https://gist.githubusercontent.com/vlgndr/9042ded914cdc20ad49231b1e1ebf4de/raw/5e97ff57344a1175a30a94ee2e15d815262ebf63/git.csv'
+  $data = Get-FilteredData -Url 'https://gist.githubusercontent.com/vlgndr/9042ded914cdc20ad49231b1e1ebf4de/raw/5e97ff57344a1175a30a94ee2e15d815262ebf63/git.csv' -Filter $Filter -Columns Name,Command,Description
 
-	if ($Filter) {
-		$data = $data | Where-Object {
-			$_.Name -ilike "*$Filter*" -or
-			$_.Command -ilike "*$Filter*" -or
-			$_.Description -ilike "*$Filter*"
-		}
-	}
-	
 	$data
 }
 
@@ -309,15 +266,7 @@ Function Get-GoogleDorkingCommand {
 		[string]$Filter
 	)
 
-	$data = Get-GistFile -Url 'https://gist.githubusercontent.com/vlgndr/69391a9ee496d6e8e0505bade0531c5f/raw/e5ac6a010a7b7c668b30717abc1b8922ce88bf3a/google-dorking.csv'
+  $data = Get-FilteredData -Url 'https://gist.githubusercontent.com/vlgndr/69391a9ee496d6e8e0505bade0531c5f/raw/e5ac6a010a7b7c668b30717abc1b8922ce88bf3a/google-dorking.csv' -Filter $Filter -Columns Name,Command,Description
 
-	if ($Filter) {
-		$data = $data | Where-Object {
-			$_.Name -ilike "*$Filter*" -or
-			$_.Command -ilike "*$Filter*" -or
-			$_.Description -ilike "*$Filter*"
-		}
-	}
-	
 	$data
 }
