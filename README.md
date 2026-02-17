@@ -4,7 +4,7 @@
 
 ---
 
-## 📦 Installation
+## Installation
 
 
 ```powershell
@@ -14,7 +14,7 @@ Import-Module .\cheatsheets\CheatSheets.psd1
 
 ---
 
-## 🧩 Available Commands
+## Available Commands
 
 ### `Get-VimCommand [<Filter>]`
 Displays a categorized Vim cheat sheet.  
@@ -74,7 +74,7 @@ Get-GoogleDorkingCommand type
 
 ---
 
-## 🔎 Features
+## Features
 
 - Simple, readable output
 - Case-insensitive filtering for fast lookup
